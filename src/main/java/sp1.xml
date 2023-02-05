@@ -1,0 +1,42 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xmlns:aop="http://www.springframework.org/schema/aop"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:jee="http://www.springframework.org/schema/jee"
+ xmlns:tx="http://www.springframework.org/schema/tx"
+ xmlns:task="http://www.springframework.org/schema/task"
+ xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+ http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+ http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+ http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+ http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+ http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+ 
+ <bean class="com.java.demo.Employee" id="emp1" scope="prototype">
+ <!-- no arg constructor or default constructor. gets called -->
+ <!-- setter based-->
+ <property name="empId" value="101"/>
+ <property name="empName" value="XXX"/>
+ <property name="empSalary" value="2834.45"/>
+ <property name="empRole" value="SSE"/>
+ 
+  </bean>
+ 
+ <bean class= "com.java.demo.Employee" id ="emp2" scope="prototype">
+  <!-- setter based  not mandotory to fix the no. of proprties to mention.-->
+ <!-- no arg constructor or default constructor. gets called -->
+ <property name="empId" value ="103" />
+ <property name="empName" value ="YYYY" ></property>
+ <property name="empSalary" value="30456.23"></property>
+
+ </bean>
+  <bean class ="com.java.demo.Employee" id ="emp3">
+  <!-- constructor based directly macthing parameter constructor will be called(no. of parameters should be fixed.) no setters  -->
+  <constructor-arg name = "empId" value = "104"/>
+  <constructor-arg name = "empName" value ="MMMM"/>
+  <constructor-arg name="empSalary" value ="45999.67"></constructor-arg>
+  <constructor-arg name="empRole" value="Manager"> </constructor-arg>
+  </bean>
+</beans>
